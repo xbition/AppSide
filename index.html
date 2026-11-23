@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Araik Store — каталог приложений для iPhone">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Araik Store</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Araik Store home"><span class="brand-mark">A</span><span>Araik <b>Store</b></span></a>
+    <button class="icon-button" id="installBtn" hidden aria-label="Установить веб-приложение">＋</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> APP LIBRARY</div>
+      <h1>Твои приложения.<br><span>В одном месте.</span></h1>
+      <p>Каталог IPA, избранное и удобное управление загрузками.</p>
+      <div class="hero-actions">
+        <a class="primary-btn" href="#catalog">Открыть каталог <span>↗</span></a>
+        <button class="secondary-btn" id="howBtn">Как это работает</button>
+      </div>
+    </section>
+
+    <section class="status-grid" aria-label="Статус сервиса">
+      <article class="status-card"><span class="status-icon">◈</span><div><small>Магазин</small><b>Работает</b></div><i class="dot green"></i></article>
+      <article class="status-card"><span class="status-icon">⌁</span><div><small>Подпись IPA</small><b>Не подключена</b></div><i class="dot amber"></i></article>
+    </section>
+
+    <section id="catalog" class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">DISCOVER</div><h2>Каталог</h2></div>
+        <span class="count" id="appCount">3 приложения</span>
+      </div>
+      <label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск приложений..." autocomplete="off"><kbd>⌘ K</kbd></label>
+      <div class="filters" role="group" aria-label="Категории">
+        <button class="filter active" data-filter="all">Все</button>
+        <button class="filter" data-filter="tools">Утилиты</button>
+        <button class="filter" data-filter="games">Игры</button>
+        <button class="filter" data-filter="other">Другое</button>
+      </div>
+      <div class="app-grid" id="appGrid"></div>
+      <div class="empty" id="emptyState" hidden>Ничего не найдено. Попробуй другой запрос.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><div class="eyebrow">YOUR LIBRARY</div><h2>Моя библиотека</h2></div><span class="count" id="savedCount">0 сохранено</span></div>
+      <div class="library-panel" id="libraryPanel">
+        <div class="library-empty"><span>☆</span><b>Пока здесь пусто</b><small>Добавляй приложения в избранное, чтобы быстро находить их.</small></div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <span class="notice-icon">ⓘ</span>
+      <div><b>О подписи и установке</b><p>Это первая веб-версия каталога. Сайт сам по себе не может подписывать или устанавливать IPA на iPhone. Для этого нужен отдельный совместимый механизм подписи и установки с авторизацией Apple на устройстве.</p></div>
+    </section>
+  </main>
+
+  <footer><span class="brand small"><span class="brand-mark">A</span><span>Araik <b>Store</b></span></span><span>Web Edition · 0.1.0</span></footer>
+
+  <dialog id="infoDialog">
+    <div class="dialog-head"><b>Как работает Araik Store</b><button class="close" data-close>×</button></div>
+    <p>Сейчас это устанавливаемый веб-каталог: поиск, категории и избранное работают прямо в браузере. Добавление на экран «Домой» создаёт ярлык веб-приложения.</p>
+    <p>Для установки IPA потребуется отдельный нативный компонент. DNS-профиль и LocalDevVPN сами по себе не выполняют подпись приложений.</p>
+    <button class="primary-btn full" data-close>Понятно</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
